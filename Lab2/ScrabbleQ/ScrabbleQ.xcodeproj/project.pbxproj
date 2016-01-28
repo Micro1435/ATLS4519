@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0BE4A01C5A7445004ADCA7 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0BE49F1C5A7445004ADCA7 /* SearchResultsController.swift */; };
 		4CFEFD151C57D780000E41AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEFD141C57D780000E41AF /* AppDelegate.swift */; };
 		4CFEFD171C57D780000E41AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFEFD161C57D780000E41AF /* ViewController.swift */; };
 		4CFEFD1A1C57D780000E41AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEFD181C57D780000E41AF /* Main.storyboard */; };
 		4CFEFD1C1C57D780000E41AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEFD1B1C57D780000E41AF /* Assets.xcassets */; };
 		4CFEFD1F1C57D780000E41AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEFD1D1C57D780000E41AF /* LaunchScreen.storyboard */; };
+		4CFEFD271C57DA46000E41AF /* qwordswithoutu1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEFD261C57DA46000E41AF /* qwordswithoutu1.plist */; };
+		4CFEFD291C57E633000E41AF /* qwordswithoutu2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEFD281C57E633000E41AF /* qwordswithoutu2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0BE49F1C5A7445004ADCA7 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		4CFEFD111C57D780000E41AF /* ScrabbleQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrabbleQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFEFD141C57D780000E41AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFEFD161C57D780000E41AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		4CFEFD1B1C57D780000E41AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFEFD1E1C57D780000E41AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFEFD201C57D780000E41AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFEFD261C57DA46000E41AF /* qwordswithoutu1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = qwordswithoutu1.plist; sourceTree = "<group>"; };
+		4CFEFD281C57E633000E41AF /* qwordswithoutu2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = qwordswithoutu2.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 			children = (
 				4CFEFD141C57D780000E41AF /* AppDelegate.swift */,
 				4CFEFD161C57D780000E41AF /* ViewController.swift */,
+				4C0BE49F1C5A7445004ADCA7 /* SearchResultsController.swift */,
 				4CFEFD181C57D780000E41AF /* Main.storyboard */,
 				4CFEFD1B1C57D780000E41AF /* Assets.xcassets */,
 				4CFEFD1D1C57D780000E41AF /* LaunchScreen.storyboard */,
+				4CFEFD261C57DA46000E41AF /* qwordswithoutu1.plist */,
+				4CFEFD281C57E633000E41AF /* qwordswithoutu2.plist */,
 				4CFEFD201C57D780000E41AF /* Info.plist */,
 			);
 			path = ScrabbleQ;
@@ -122,7 +131,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFEFD291C57E633000E41AF /* qwordswithoutu2.plist in Resources */,
 				4CFEFD1F1C57D780000E41AF /* LaunchScreen.storyboard in Resources */,
+				4CFEFD271C57DA46000E41AF /* qwordswithoutu1.plist in Resources */,
 				4CFEFD1C1C57D780000E41AF /* Assets.xcassets in Resources */,
 				4CFEFD1A1C57D780000E41AF /* Main.storyboard in Resources */,
 			);
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFEFD171C57D780000E41AF /* ViewController.swift in Sources */,
+				4C0BE4A01C5A7445004ADCA7 /* SearchResultsController.swift in Sources */,
 				4CFEFD151C57D780000E41AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +296,7 @@
 				4CFEFD251C57D780000E41AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

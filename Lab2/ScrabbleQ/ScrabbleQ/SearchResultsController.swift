@@ -8,11 +8,16 @@
 
 import UIKit
 
-class SearchResultsController: UITableViewController {
+class SearchResultsController: UITableViewController, UISearchResultsUpdating {
 
+    var allWords = [String : [String]]()
+    var letters = [String]()
+    var filteredWords = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellIdentifier")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,6 +25,27 @@ class SearchResultsController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    // UISearchResultsUpdating Protocol required method to implement search
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchString = searchController.searchBar.text  // Search String
+        filteredWords.removeAll(keepCapacity: true) // Removes all elements
+        if searchString?.isEmpty == false {
+            // Closure that will be called for each word to see if it matches the search string
+            let filter: String -> Bool = { name in
+                // Look for the search string as a substring of the word
+                let range = name.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                return range != nil // Returns true if there is a match
+            }
+            // Iterate over all letters
+            for key in letters {
+                let wordsForKeys = allWords[key]!   // Array of names for each key
+                let matches = wordsForKeys.filter(filter)   // filter using closure
+                filteredWords.appendContentsOf(matches)     // add words that match
+            }
+        }
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,23 +55,22 @@ class SearchResultsController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return filteredWords.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = filteredWords[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
