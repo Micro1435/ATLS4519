@@ -8,10 +8,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webSpinner: UIActivityIndicatorView!
 
     var detailItem: AnyObject? {
         didSet {
@@ -19,12 +21,29 @@ class DetailViewController: UIViewController {
             self.configureView()
         }
     }
+    
+    func loadWebPage(urlString: String) {
+        let url = NSURL(string: urlString)      //Creats a NSURL object
+        let request = NSURLRequest(URL: url!)   // Creat a NSURLRequest object
+        webView.loadRequest(request)            // Load the NSURLRequest object in our web view
+    }
+    
+    // UIWebViewDelegate method that is called when a web page begins to load
+    func webViewDidStartLoad(webView: UIWebView) {
+        webSpinner.startAnimating()
+    }
+    
+    // UIWebViewDelegate method that is called when a web page loads successfully
+    func webViewDidFinishLoad(webView: UIWebView) {
+        webSpinner.stopAnimating()
+    }
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
+                loadWebPage(detail.description)
             }
         }
     }

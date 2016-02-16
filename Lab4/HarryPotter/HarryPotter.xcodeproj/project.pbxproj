@@ -11,8 +11,10 @@
 		4C5AA0061C6CEED400BB5AB5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AA0051C6CEED400BB5AB5 /* MasterViewController.swift */; };
 		4C5AA0081C6CEED400BB5AB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5AA0071C6CEED400BB5AB5 /* DetailViewController.swift */; };
 		4C5AA00B1C6CEED400BB5AB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA0091C6CEED400BB5AB5 /* Main.storyboard */; };
-		4C5AA00D1C6CEED400BB5AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA00C1C6CEED400BB5AB5 /* Assets.xcassets */; };
 		4C5AA0101C6CEED400BB5AB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA00E1C6CEED400BB5AB5 /* LaunchScreen.storyboard */; };
+		4C5AA0181C6CEEEF00BB5AB5 /* harrypotter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA0171C6CEEEF00BB5AB5 /* harrypotter.plist */; };
+		4C5AA01A1C6D00DD00BB5AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA0191C6D00DD00BB5AB5 /* Assets.xcassets */; };
+		4C5AA01C1C6D019B00BB5AB5 /* harry_potter_glasses_scar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AA01B1C6D019B00BB5AB5 /* harry_potter_glasses_scar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +23,11 @@
 		4C5AA0051C6CEED400BB5AB5 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		4C5AA0071C6CEED400BB5AB5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4C5AA00A1C6CEED400BB5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4C5AA00C1C6CEED400BB5AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C5AA00F1C6CEED400BB5AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C5AA0111C6CEED400BB5AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C5AA0171C6CEEEF00BB5AB5 /* harrypotter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = harrypotter.plist; sourceTree = "<group>"; };
+		4C5AA0191C6D00DD00BB5AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C5AA01B1C6D019B00BB5AB5 /* harry_potter_glasses_scar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harry_potter_glasses_scar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,10 @@
 				4C5AA0051C6CEED400BB5AB5 /* MasterViewController.swift */,
 				4C5AA0071C6CEED400BB5AB5 /* DetailViewController.swift */,
 				4C5AA0091C6CEED400BB5AB5 /* Main.storyboard */,
-				4C5AA00C1C6CEED400BB5AB5 /* Assets.xcassets */,
+				4C5AA0191C6D00DD00BB5AB5 /* Assets.xcassets */,
+				4C5AA01B1C6D019B00BB5AB5 /* harry_potter_glasses_scar.png */,
 				4C5AA00E1C6CEED400BB5AB5 /* LaunchScreen.storyboard */,
+				4C5AA0171C6CEEEF00BB5AB5 /* harrypotter.plist */,
 				4C5AA0111C6CEED400BB5AB5 /* Info.plist */,
 			);
 			path = HarryPotter;
@@ -126,8 +132,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C5AA0101C6CEED400BB5AB5 /* LaunchScreen.storyboard in Resources */,
-				4C5AA00D1C6CEED400BB5AB5 /* Assets.xcassets in Resources */,
+				4C5AA01C1C6D019B00BB5AB5 /* harry_potter_glasses_scar.png in Resources */,
 				4C5AA00B1C6CEED400BB5AB5 /* Main.storyboard in Resources */,
+				4C5AA01A1C6D00DD00BB5AB5 /* Assets.xcassets in Resources */,
+				4C5AA0181C6CEEEF00BB5AB5 /* harrypotter.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
