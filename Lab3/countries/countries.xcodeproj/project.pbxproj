@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C57D4F81C6A4DF8004AB0FA /* AddCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57D4F71C6A4DF8004AB0FA /* AddCountryViewController.swift */; };
+		4C57D4FA1C6A5295004AB0FA /* ContinentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57D4F91C6A5295004AB0FA /* ContinentInfoViewController.swift */; };
 		7525F6BE1C570524003BBA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525F6BD1C570524003BBA79 /* AppDelegate.swift */; };
 		7525F6C01C570524003BBA79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525F6BF1C570524003BBA79 /* ViewController.swift */; };
 		7525F6C31C570524003BBA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7525F6C11C570524003BBA79 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C57D4F71C6A4DF8004AB0FA /* AddCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCountryViewController.swift; path = ../AddCountryViewController.swift; sourceTree = "<group>"; };
+		4C57D4F91C6A5295004AB0FA /* ContinentInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinentInfoViewController.swift; sourceTree = "<group>"; };
 		7525F6BA1C570524003BBA79 /* countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7525F6BD1C570524003BBA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7525F6BF1C570524003BBA79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,10 +64,12 @@
 		7525F6BC1C570524003BBA79 /* countries */ = {
 			isa = PBXGroup;
 			children = (
+				4C57D4F71C6A4DF8004AB0FA /* AddCountryViewController.swift */,
 				7525F6BD1C570524003BBA79 /* AppDelegate.swift */,
 				7525F6BF1C570524003BBA79 /* ViewController.swift */,
 				7525F6CF1C57080C003BBA79 /* Continents.swift */,
 				75C392BB1C5823E5006A3525 /* DetailViewController.swift */,
+				4C57D4F91C6A5295004AB0FA /* ContinentInfoViewController.swift */,
 				7525F6C11C570524003BBA79 /* Main.storyboard */,
 				7525F6C41C570524003BBA79 /* Assets.xcassets */,
 				7525F6C61C570524003BBA79 /* LaunchScreen.storyboard */,
@@ -146,9 +152,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7525F6D01C57080C003BBA79 /* Continents.swift in Sources */,
+				4C57D4F81C6A4DF8004AB0FA /* AddCountryViewController.swift in Sources */,
 				7525F6C01C570524003BBA79 /* ViewController.swift in Sources */,
 				7525F6BE1C570524003BBA79 /* AppDelegate.swift in Sources */,
 				75C392BC1C5823E5006A3525 /* DetailViewController.swift in Sources */,
+				4C57D4FA1C6A5295004AB0FA /* ContinentInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,18 +10,32 @@ import UIKit
 
 class ViewController: UITableViewController {
     var continentList = Continents()
-
+    let kfilename = "data.plist"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //use a NSBundle object of the directory for our application to retrieve the pathname of qwordswithoutu1.plist
+        let path:String?
+        let filePath = docFilePath(kfilename)
         
-        let path = NSBundle.mainBundle().pathForResource("continents", ofType: "plist")
-        //load the data of the plist file into the dictionary
+        if NSFileManager.defaultManager().fileExistsAtPath(filePath!) {
+            path = filePath
+        } else {
+            path = NSBundle.mainBundle().pathForResource("continents", ofType: "plist")
+        }
         
         continentList.continentData = NSDictionary(contentsOfFile: path!) as! [String : [String]]
-        //puts all the continents in an array
-        
         continentList.continents = Array(continentList.continentData.keys)
+        
+        let app = UIApplication.sharedApplication()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive:", name: "UIApplicationWillResignActiveNotification", object: app)
+    }
+    
+    func applicationWillResignActive(notification: NSNotification) {
+        let filePath = docFilePath(kfilename)
+        let data = NSMutableDictionary()
+        data.addEntriesFromDictionary(continentList.continentData)
+        data.writeToFile(filePath!, atomically: true)
     }
 
     //Required methods for UITableViewDataSource
@@ -47,7 +61,20 @@ class ViewController: UITableViewController {
             detailVC.title = continentList.continents[indexPath.row]
             detailVC.continentListDetail=continentList
             detailVC.selectedContinent = indexPath.row
+        } else if segue.identifier == "continentSegue" {
+            let infoVC = segue.destinationViewController as! ContinentInfoViewController
+            let editingCell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(editingCell)
+            infoVC.name = continentList.continents[indexPath!.row]
+            let countries = continentList.continentData[infoVC.name]! as [String]
+            infoVC.number = String(countries.count)
         }
+    }
+    
+    func docFilePath(filename: String) -> String? {
+        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
+        let dir = path[0] as NSString   // Document Directory
+        return dir.stringByAppendingPathComponent(filename) // Creates the full path to our data file
     }
     
     override func didReceiveMemoryWarning() {

@@ -13,6 +13,19 @@ class DetailViewController: UITableViewController {
     var selectedContinent = 0
     var continentListDetail = Continents()
 
+    @IBAction func unwindSegue (segue:UIStoryboardSegue){
+        if segue.identifier == "doneSegue" {
+            let source = segue.sourceViewController as! AddCountryViewController
+            
+            if ((source.addedCountry.isEmpty) == false) {
+                countries.append(source.addedCountry)
+                tableView.reloadData()
+                let chosenContinent = continentListDetail.continents[selectedContinent]
+                continentListDetail.continentData[chosenContinent]?.append(source.addedCountry)
+            }
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         continentListDetail.continents = Array(continentListDetail.continentData.keys)
         let chosenContinent = continentListDetail.continents[selectedContinent]
@@ -26,7 +39,7 @@ class DetailViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
