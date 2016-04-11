@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cg8-zh-P7F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cg8-zh-P7F">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,14 +23,28 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueI-gK-Gc7">
                                 <rect key="frame" x="246" y="175" width="110" height="38"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Hang Board"/>
+                                <state key="normal" title="Hang Board">
+                                    <color key="titleColor" red="0.0" green="0.09229462986623993" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="p9D-tL-tRq" kind="presentation" id="fmF-Y0-wMw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4j-s2-Cue">
+                                <rect key="frame" x="186" y="228" width="230" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Minute Boulder Problems">
+                                    <color key="titleColor" red="0.0" green="0.092294629870000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vTb-v6-9fe" kind="presentation" id="bEY-gr-jqh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="E4j-s2-Cue" firstAttribute="centerX" secondItem="ueI-gK-Gc7" secondAttribute="centerX" id="2Ms-63-jag"/>
+                            <constraint firstItem="E4j-s2-Cue" firstAttribute="top" secondItem="ueI-gK-Gc7" secondAttribute="bottom" constant="15" id="AGE-ZK-qd4"/>
                             <constraint firstItem="ueI-gK-Gc7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-105.5" id="cXt-RO-StF"/>
                             <constraint firstItem="ueI-gK-Gc7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="t2l-Tb-keK"/>
                         </constraints>
@@ -40,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="1137" y="389"/>
         </scene>
-        <!--Timer-->
+        <!--Hang Board-->
         <scene sceneID="wB9-Q7-U6D">
             <objects>
                 <viewController id="7X1-RS-JzZ" customClass="HangBoardViewController" customModule="IntervalTimer" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +77,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ie: 5" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N13-vY-eyU">
-                                <rect key="frame" x="251" y="169" width="97" height="30"/>
+                                <rect key="frame" x="253" y="285" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="iBa-Ph-k5j"/>
                                 </constraints>
@@ -69,37 +85,60 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many sets do you want to do?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-gs-6PT">
-                                <rect key="frame" x="20" y="72" width="560" height="61"/>
+                                <rect key="frame" x="21" y="173" width="560" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="GfU-vZ-Ffp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0t-Qu-KYb">
-                                <rect key="frame" x="287" y="265" width="28.5" height="61"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="51"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="283" y="264" width="34" height="71"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input how many hangs you would like to do.  Each hang is 10 seconds long with a 5 second break in between." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAf-MR-gKJ">
+                                <rect key="frame" x="21" y="253" width="559" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="pUf-JE-Ses"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hang Board Circuits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53c-Jw-pjf">
+                                <rect key="frame" x="207" y="164" width="187" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="WL5-QG-5h2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bdg-gs-6PT" firstAttribute="centerX" secondItem="XdW-fe-LkO" secondAttribute="centerX" id="1KY-Ew-fjP"/>
-                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="centerX" secondItem="XdW-fe-LkO" secondAttribute="centerX" constant="1.5" id="5r7-9h-gz2"/>
-                            <constraint firstItem="bdg-gs-6PT" firstAttribute="top" secondItem="TAI-se-4lD" secondAttribute="bottom" constant="8" id="K2Q-pi-M6p"/>
-                            <constraint firstItem="EGu-bI-sPy" firstAttribute="top" secondItem="C0t-Qu-KYb" secondAttribute="bottom" constant="40" id="ZAZ-tk-jCw"/>
-                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="top" secondItem="N13-vY-eyU" secondAttribute="bottom" constant="66" id="cfu-e9-LFl"/>
-                            <constraint firstItem="bdg-gs-6PT" firstAttribute="trailing" secondItem="XdW-fe-LkO" secondAttribute="trailingMargin" id="dcu-qB-m6V"/>
-                            <constraint firstItem="bdg-gs-6PT" firstAttribute="leading" secondItem="XdW-fe-LkO" secondAttribute="leadingMargin" id="iAQ-7C-wfW"/>
-                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="centerY" secondItem="XdW-fe-LkO" secondAttribute="centerY" constant="-4.5" id="jxL-gI-6D4"/>
-                            <constraint firstItem="N13-vY-eyU" firstAttribute="centerX" secondItem="C0t-Qu-KYb" secondAttribute="centerX" constant="-2" id="pWB-4p-zzw"/>
-                            <constraint firstItem="EGu-bI-sPy" firstAttribute="centerX" secondItem="C0t-Qu-KYb" secondAttribute="centerX" constant="-1.5" id="rD3-sX-kPe"/>
-                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="top" secondItem="TAI-se-4lD" secondAttribute="bottom" constant="201" id="w9q-1p-PRV"/>
+                            <constraint firstItem="bdg-gs-6PT" firstAttribute="centerX" secondItem="XdW-fe-LkO" secondAttribute="centerX" constant="1" id="1KY-Ew-fjP"/>
+                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="centerX" secondItem="XdW-fe-LkO" secondAttribute="centerX" id="5r7-9h-gz2"/>
+                            <constraint firstItem="bdg-gs-6PT" firstAttribute="top" secondItem="TAI-se-4lD" secondAttribute="bottom" constant="109" id="K2Q-pi-M6p"/>
+                            <constraint firstItem="KAf-MR-gKJ" firstAttribute="top" secondItem="53c-Jw-pjf" secondAttribute="bottom" constant="65" id="Ns8-AX-hVJ"/>
+                            <constraint firstItem="KAf-MR-gKJ" firstAttribute="leading" secondItem="XdW-fe-LkO" secondAttribute="leadingMargin" constant="1" id="To5-DP-9wB"/>
+                            <constraint firstItem="53c-Jw-pjf" firstAttribute="centerX" secondItem="bdg-gs-6PT" secondAttribute="centerX" id="ULy-zD-z0O"/>
+                            <constraint firstItem="EGu-bI-sPy" firstAttribute="top" secondItem="C0t-Qu-KYb" secondAttribute="bottom" constant="31" id="ZAZ-tk-jCw"/>
+                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="top" secondItem="N13-vY-eyU" secondAttribute="bottom" constant="-51" id="cfu-e9-LFl"/>
+                            <constraint firstItem="bdg-gs-6PT" firstAttribute="trailing" secondItem="XdW-fe-LkO" secondAttribute="trailingMargin" constant="1" id="dcu-qB-m6V"/>
+                            <constraint firstItem="bdg-gs-6PT" firstAttribute="leading" secondItem="XdW-fe-LkO" secondAttribute="leadingMargin" constant="1" id="iAQ-7C-wfW"/>
+                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="centerY" secondItem="XdW-fe-LkO" secondAttribute="centerY" constant="-0.5" id="jxL-gI-6D4"/>
+                            <constraint firstItem="KAf-MR-gKJ" firstAttribute="top" secondItem="bdg-gs-6PT" secondAttribute="bottom" constant="19" id="k74-Sd-xyf"/>
+                            <constraint firstItem="N13-vY-eyU" firstAttribute="centerX" secondItem="C0t-Qu-KYb" secondAttribute="centerX" constant="1.5" id="pWB-4p-zzw"/>
+                            <constraint firstItem="EGu-bI-sPy" firstAttribute="centerX" secondItem="C0t-Qu-KYb" secondAttribute="centerX" constant="0.5" id="rD3-sX-kPe"/>
+                            <constraint firstItem="KAf-MR-gKJ" firstAttribute="trailing" secondItem="XdW-fe-LkO" secondAttribute="trailingMargin" id="vU0-OT-aRz"/>
+                            <constraint firstItem="C0t-Qu-KYb" firstAttribute="top" secondItem="TAI-se-4lD" secondAttribute="bottom" constant="200" id="w9q-1p-PRV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Timer" id="Dan-PT-0Z6">
+                    <navigationItem key="navigationItem" title="Hang Board" id="Dan-PT-0Z6">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Fh9-rI-Zme">
                             <connections>
                                 <segue destination="DC9-OL-7Lh" kind="unwind" unwindAction="backSeque:" id="gwS-EZ-dtr"/>
@@ -107,14 +146,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="hangBoardLabel" destination="53c-Jw-pjf" id="fME-Jq-hiX"/>
+                        <outlet property="infoLabel" destination="KAf-MR-gKJ" id="7lP-2G-mLI"/>
                         <outlet property="setNumberTextField" destination="N13-vY-eyU" id="8vh-j4-Msw"/>
+                        <outlet property="startButton" destination="EGu-bI-sPy" id="yI4-Hr-3IY"/>
                         <outlet property="timerLabel" destination="C0t-Qu-KYb" id="p25-sY-hEE"/>
+                        <outlet property="topLabel" destination="bdg-gs-6PT" id="KFp-nJ-BVZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waE-YI-b8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DC9-OL-7Lh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2629" y="386"/>
+            <point key="canvasLocation" x="2871" y="-368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AKP-wB-u4f">
@@ -132,7 +175,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foQ-bz-GuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="-306"/>
+            <point key="canvasLocation" x="359" y="389"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pfw-Vw-9e8">
@@ -150,7 +193,131 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcQ-DN-Upi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="386"/>
+            <point key="canvasLocation" x="2059" y="-368"/>
+        </scene>
+        <!--Minute Boulder-->
+        <scene sceneID="R66-Fb-8jZ">
+            <objects>
+                <viewController id="9Ax-i5-9EK" customClass="MinuteBoulderViewController" customModule="IntervalTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qQR-9T-x7C"/>
+                        <viewControllerLayoutGuide type="bottom" id="8cT-7V-Zg5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uO0-iu-jN1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many climbs do you want to do?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-D4-yoA">
+                                <rect key="frame" x="20" y="179" width="560" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="KlU-Tz-DLz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ie: 6" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3SO-0e-S8n">
+                                <rect key="frame" x="252" y="308" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="UBo-MP-3th"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJp-0p-vSk">
+                                <rect key="frame" x="227" y="264" width="147" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="71B-GE-eKF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz4-xh-sQ2">
+                                <rect key="frame" x="283" y="450" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="9Ax-i5-9EK" eventType="touchUpInside" id="6tW-hX-9iW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Minute Boulder Problems:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-Oa-byi">
+                                <rect key="frame" x="178" y="111" width="244" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="244" id="5jj-GL-ddg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyC-jD-QJI">
+                                <rect key="frame" x="20" y="164" width="560" height="271"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="271" id="fVf-gL-FuI"/>
+                                </constraints>
+                                <string key="text">Input how many different climbs you would like to do.  Each set lasts 4 minutes and you climb the problem at the start of each minute.  There is a 4 minute break in between sets.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uyC-jD-QJI" firstAttribute="leading" secondItem="uO0-iu-jN1" secondAttribute="leadingMargin" id="3Bi-ry-zx8"/>
+                            <constraint firstItem="3SO-0e-S8n" firstAttribute="top" secondItem="Vr0-D4-yoA" secondAttribute="bottom" constant="59" id="6dg-RL-BuF"/>
+                            <constraint firstItem="uyC-jD-QJI" firstAttribute="top" secondItem="qQR-9T-x7C" secondAttribute="bottom" constant="100" id="Eow-ml-cgK"/>
+                            <constraint firstItem="9Ny-Oa-byi" firstAttribute="centerX" secondItem="Vr0-D4-yoA" secondAttribute="centerX" id="FOB-Ee-jDJ"/>
+                            <constraint firstItem="dz4-xh-sQ2" firstAttribute="top" secondItem="3SO-0e-S8n" secondAttribute="bottom" constant="112" id="I3X-c1-7ct"/>
+                            <constraint firstItem="uyC-jD-QJI" firstAttribute="trailing" secondItem="uO0-iu-jN1" secondAttribute="trailingMargin" id="LJJ-QY-mi3"/>
+                            <constraint firstItem="mJp-0p-vSk" firstAttribute="centerY" secondItem="uO0-iu-jN1" secondAttribute="centerY" id="Qqx-G7-7mj"/>
+                            <constraint firstItem="Vr0-D4-yoA" firstAttribute="top" secondItem="qQR-9T-x7C" secondAttribute="bottom" constant="115" id="Wco-tz-xVc"/>
+                            <constraint firstItem="3SO-0e-S8n" firstAttribute="centerX" secondItem="Vr0-D4-yoA" secondAttribute="centerX" id="aMU-YG-Fzx"/>
+                            <constraint firstItem="dz4-xh-sQ2" firstAttribute="centerX" secondItem="3SO-0e-S8n" secondAttribute="centerX" id="aRR-x5-Xgv"/>
+                            <constraint firstItem="Vr0-D4-yoA" firstAttribute="leading" secondItem="uO0-iu-jN1" secondAttribute="leadingMargin" id="egN-jH-C50"/>
+                            <constraint firstItem="9Ny-Oa-byi" firstAttribute="top" secondItem="qQR-9T-x7C" secondAttribute="bottom" constant="47" id="fsa-z5-sMb"/>
+                            <constraint firstItem="9Ny-Oa-byi" firstAttribute="baseline" secondItem="Vr0-D4-yoA" secondAttribute="firstBaseline" id="kNO-xz-PMd"/>
+                            <constraint firstItem="Vr0-D4-yoA" firstAttribute="trailing" secondItem="uO0-iu-jN1" secondAttribute="trailingMargin" id="qVx-QN-c1B"/>
+                            <constraint firstItem="mJp-0p-vSk" firstAttribute="centerX" secondItem="3SO-0e-S8n" secondAttribute="centerX" id="wLD-sk-lKg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Minute Boulder" id="U7L-6k-Fvo">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="qr1-FH-Uom">
+                            <connections>
+                                <segue destination="4A4-Dj-1dh" kind="unwind" unwindAction="backSeque:" id="Ely-aX-eVO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="9yp-lw-V9M"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="infoLabel" destination="uyC-jD-QJI" id="Afa-yP-ucn"/>
+                        <outlet property="minuteBoulderLabel" destination="9Ny-Oa-byi" id="Sw3-Pu-Zm3"/>
+                        <outlet property="setNumberTextField" destination="3SO-0e-S8n" id="gAg-Vu-HzQ"/>
+                        <outlet property="startButton" destination="dz4-xh-sQ2" id="v5O-yM-AQX"/>
+                        <outlet property="timerLabel" destination="mJp-0p-vSk" id="Lks-wh-ZzL"/>
+                        <outlet property="topLabel" destination="Vr0-D4-yoA" id="A3o-WU-VO6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJg-qG-T1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4A4-Dj-1dh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2871" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xhv-x1-2Rx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vTb-v6-9fe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DM4-AL-gyK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Ax-i5-9EK" kind="relationship" relationship="rootViewController" id="lHq-ht-Sih"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fB-d0-EPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="389"/>
         </scene>
     </scenes>
 </document>

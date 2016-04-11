@@ -10,4 +10,6 @@ import UIKit
 
 class CollectionReusableView: UICollectionReusableView {
         
+    @IBOutlet weak var label: UILabel!
+    
 }

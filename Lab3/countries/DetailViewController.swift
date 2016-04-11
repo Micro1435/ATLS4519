@@ -16,7 +16,7 @@ class DetailViewController: UITableViewController {
     @IBAction func unwindSegue (segue:UIStoryboardSegue){
         if segue.identifier == "doneSegue" {
             let source = segue.sourceViewController as! AddCountryViewController
-            
+        
             if ((source.addedCountry.isEmpty) == false) {
                 countries.append(source.addedCountry)
                 tableView.reloadData()
