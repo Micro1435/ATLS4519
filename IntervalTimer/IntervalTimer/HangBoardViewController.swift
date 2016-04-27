@@ -17,6 +17,7 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var hangBoardLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var restLabel: UILabel!
     
     var timer = NSTimer()
     var restTimer = NSTimer()
@@ -25,6 +26,8 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
     var currentRep = 0
     var isCounting = true
     var infoOpen = false
+    
+    @IBOutlet weak var button: UIButton!
     
     @IBAction func startTimer(sender: AnyObject) {
         if isCounting {
@@ -45,6 +48,10 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
             startButton.setTitle("Start", forState: .Normal)
         }
         
+    }
+    @IBAction func backButton(sender: AnyObject) {
+        timer.invalidate()
+        restTimer.invalidate()
     }
     
     func startTimer() {     // Starts hang timer
@@ -73,6 +80,7 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
                 timer.invalidate()
                 second = 0
                 restTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HangBoardViewController.restTime), userInfo: nil, repeats: true)
+                restLabel.alpha = 1
                 currentRep += 1
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
@@ -95,6 +103,7 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
             startTimer()
             second = 0
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            restLabel.alpha = 0
         }
     }
     
@@ -137,6 +146,8 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
 
+        button.layer.cornerRadius = 3
+        
         setNumberTextField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HangBoardViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -152,6 +163,7 @@ class HangBoardViewController: UIViewController, UITextFieldDelegate {
         self.startButton.alpha = 0
         self.hangBoardLabel.alpha = 0
         self.infoLabel.alpha = 0
+        restLabel.alpha = 0
     }
     
     func dismissKeyboard() {    // Dismiss keyboard on tap

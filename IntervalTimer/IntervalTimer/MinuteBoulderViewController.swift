@@ -26,6 +26,7 @@ class MinuteBoulderViewController: UIViewController, UITextFieldDelegate {
     var isCounting = true
     var infoOpen = false
     
+    @IBOutlet weak var button: UIButton!
     /*
         TODO:
             Right now, the minute boulder problems don't have 4 minute rests in between but everything else works.  For next edit,
@@ -34,6 +35,10 @@ class MinuteBoulderViewController: UIViewController, UITextFieldDelegate {
     */
     
     
+    @IBAction func backButton(sender: AnyObject) {
+        timer.invalidate()
+        restTimer.invalidate()
+    }
     
     @IBAction func startTimer(sender: AnyObject) {
         if isCounting {
@@ -130,6 +135,8 @@ class MinuteBoulderViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        button.layer.cornerRadius = 3
         
         setNumberTextField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MinuteBoulderViewController.dismissKeyboard))

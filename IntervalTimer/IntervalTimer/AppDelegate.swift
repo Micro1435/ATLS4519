@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navAppearance = UINavigationBar.appearance()
         navAppearance.tintColor = UIColor.whiteColor()
         navAppearance.barTintColor = UIColor.blueColor()
-        
         if let font = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
             let navbarAttribute: [String: AnyObject]? = [
                 NSForegroundColorAttributeName: UIColor.whiteColor(),
