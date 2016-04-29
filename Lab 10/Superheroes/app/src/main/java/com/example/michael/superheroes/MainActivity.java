@@ -16,26 +16,17 @@ public class MainActivity extends AppCompatActivity implements UniverseListFragm
     }
 
     @Override public void itemClicked(long id){
-        //get a reference to the frame layout that contains HeroDetailFragment
         View fragmentContainer = findViewById(R.id.fragment_container);
-        //large layout device
         if (fragmentContainer != null) {
 
-            //create new fragment instance
             HeroDetailFragment frag = new HeroDetailFragment();
-            //create new fragment transaction
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            //set the id of the universe selected
             frag.setUniverse(id);
-            //replace the fragment in the fragment container
             ft.replace(R.id.fragment_container, frag);
-            //add fragment to the back stack
             ft.addToBackStack(null);
-            //set the transition animation-optional
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            //commit the transaction
             ft.commit();
-        }else{ //app is running on a device with a smaller screen
+        }else{
             Intent intent = new Intent(this, DetailActivity.class);
             intent.putExtra("id", (int) id);
             startActivity(intent);
