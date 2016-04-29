@@ -1,9 +1,11 @@
 package com.example.michael.superheroes;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -29,8 +31,8 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
 
     private ArrayAdapter<String> adapter;
 
-    public interface ButtonClickListener{
-        public void addheroclicked(View view);
+    interface ButtonClickListener{
+        void addheroclicked(View view);
     }
 
     private ButtonClickListener listener;
@@ -54,7 +56,7 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         super.onStart();
 
         View view = getView();
-        ListView listHeroes = (ListView) view.findViewById(R.id.herolistView);
+        ListView listHeroes = (ListView)view.findViewById(R.id.herolistView);
 
         ArrayList<String> herolist = new ArrayList<String>();
         herolist = Hero.heroes[(int) universeId].getSuperheroes();
@@ -63,31 +65,39 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
 
         listHeroes.setAdapter(adapter);
 
-        Button addButton = (Button) view.findViewById(R.id.addButton);
+        Button addButton = (Button)view.findViewById(R.id.addButton);
         addButton.setOnClickListener(this);
 
         registerForContextMenu(listHeroes);
+
     }
 
     @Override public void onSaveInstanceState(Bundle savedInstanceState){
         savedInstanceState.putLong("universeId", universeId);
     }
 
-    @Override public void onAttach(Context context){
+    @Override public void onAttach(Activity activity){
+        Log.i("Attached", "Called onAttach");
+        super.onAttach(activity);
+        listener = (ButtonClickListener)activity;
+    }
+
+    @Override public void onAttach(Context context) {
         super.onAttach(context);
-        //attaches the context to the listener
-        if (context instanceof ButtonClickListener) {
-            listener = (ButtonClickListener) context; //causes crash
-        }
+        listener = (ButtonClickListener)context;
     }
 
     @Override public void onClick(View view){
+        Log.i("CLICKED", "BUTTON CLICKED");
         if (listener !=null){
             listener.addheroclicked(view);
+        } else {
+            Log.i("LISTENER", "Listener = NULL");
         }
     }
 
     public void addhero(){
+        Log.d("CLICK", "onClick: Button Clicked");
         final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog);
         dialog.setTitle("Add Hero");
@@ -97,6 +107,7 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String heroName = editText.getText().toString();
                 Hero.heroes[(int) universeId].getSuperheroes().add(heroName);
                 HeroDetailFragment.this.adapter.notifyDataSetChanged();
@@ -112,6 +123,7 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         super.onCreateContextMenu(menu, view, menuInfo);
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
         String heroname = adapter.getItem(adapterContextMenuInfo.position);
+        Log.d("DELETE", "onCreateContextMenu: Deleted");
         menu.setHeaderTitle("Delete " + heroname);
         menu.add(1, 1, 1, "Yes");
         menu.add(2, 2, 2, "No");
