@@ -1,59 +1,62 @@
 package com.example.michael.superheroes;
 
-
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import java.util.ArrayList;
-import android.app.Dialog;
 import android.widget.Button;
 import android.widget.EditText;
-import android.content.Context;
-import android.view.ContextMenu;
-import android.view.MenuItem;
-import android.widget.AdapterView;
+import android.widget.ListView;
+import java.util.ArrayList;
 
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class HeroDetailFragment extends Fragment implements View.OnClickListener {
-
+public class HeroDetailFragment extends Fragment implements View.OnClickListener{
+// implements View.OnClickListener
 
     public HeroDetailFragment() {
         // Required empty public constructor
     }
 
+    private long universeId; //id of the universe chosen
+
+    //set the universe id
+    public void setUniverse(long id){
+        this.universeId = id;
+    }
+
+    //create array adapter
+    private ArrayAdapter<String> adapter;
+
+    //create interface
     public interface ButtonClickListener{
         public void addheroclicked(View view);
     }
 
+    //create listener
     private ButtonClickListener listener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         if (savedInstanceState !=null){
             universeId = savedInstanceState.getLong("universeId");
         }
-
-        if (Hero.heroes[0].getSuperheroes().size() == 0) {
+        //if the hero list is empty, load heroes
+        if (Hero.heroes[0].getSuperheroes().size() == 0 ) {
             Hero.heroes[0].loadHeroes(getActivity(), 0);
         }
-        if (Hero.heroes[1].getSuperheroes().size() == 0) {
+        if (Hero.heroes[1].getSuperheroes().size() == 0 ) {
             Hero.heroes[1].loadHeroes(getActivity(), 1);
         }
-
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_hero_detail, container, false);
     }
-
-    private ArrayAdapter<String> adapter;
 
     @Override public void onStart(){
         super.onStart();
@@ -69,15 +72,17 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         //set the array adapter
         adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, herolist);
 
+        //bind array adapter to the list view
         listHeroes.setAdapter(adapter);
 
         Button addButton = (Button) view.findViewById(R.id.addButton);
         addButton.setOnClickListener(this);
 
+        //register contextmenu
         registerForContextMenu(listHeroes);
     }
 
-    @Override public void onSaveInstanceState(Bundle savedInstanceState) {
+    @Override public void onSaveInstanceState(Bundle savedInstanceState){
         savedInstanceState.putLong("universeId", universeId);
     }
 
@@ -95,7 +100,7 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         }
     }
 
-    public void addHero(){
+    public void addhero(){
         final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.dialog);
         dialog.setTitle("Add Hero");
@@ -117,29 +122,36 @@ public class HeroDetailFragment extends Fragment implements View.OnClickListener
         dialog.show();
     }
 
-    @Override public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
+    //create a context menu on long press
+    @Override public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, view, menuInfo);
+        //cast ContextMenu.ContextMenuInfo to AdapterView.AdapterContextMenuInfo since we're using an adapter
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        //get hero name that was pressed
         String heroname = adapter.getItem(adapterContextMenuInfo.position);
+        //set the menu title
         menu.setHeaderTitle("Delete " + heroname);
+        //add the choices to the menu
         menu.add(1, 1, 1, "Yes");
         menu.add(2, 2, 2, "No");
     }
 
-    @Override public boolean onContextItemSelected(MenuItem item) {
+    //handle context menu item selection
+    @Override public boolean onContextItemSelected(MenuItem item){
+        //get the id of the item
         int itemId = item.getItemId();
-        if (itemId == 1) {
+        if (itemId == 1) { //if yes menu item was pressed
+            //get the position of the menu item
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            //remove the hero
             Hero.heroes[(int) universeId].getSuperheroes().remove(info.position);
+            //refresh the list view
             HeroDetailFragment.this.adapter.notifyDataSetChanged();
+            Hero.heroes[(int) universeId].storeHeroes(getActivity(), universeId);
         }
         return true;
     }
 
-    private long universeId;
-
-    public void setUniverse(long id) {
-        this.universeId = id;
-    }
+    //reference: http://www.survivingwithandroid.com/2012/10/android-listviewarrayadapter-and.html
 
 }
