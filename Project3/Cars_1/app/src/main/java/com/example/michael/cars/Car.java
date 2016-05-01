@@ -24,22 +24,8 @@ public class Car {
 
     public static final Car[] cars = {
             new Car("P1", R.drawable.p1),
-            new Car("LaFerrari", R.drawable.laferrari),
-            new Car("918", R.drawable.porsche),
-            new Car("675LT", R.drawable.lt),
             new Car("Huayra BC", R.drawable.bc)
     };
 
-    public String getMake() {
-        return make;
-    }
-
-    public int getImageResourceID() {
-        return imageResourceID;
-    }
-
-    public String toString() {
-        return this.make;
-    }
 }
 
