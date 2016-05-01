@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        loadCars(MainActivity.this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -97,5 +103,26 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    public void storeCars(Context context) {
+        SharedPreferences sharedPrefs = context.getSharedPreferences("Cars", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+
+        Set<String> set = new HashSet<String>();
+        set.addAll(carList);
+        editor.putStringSet("Cars", set);
+        editor.commit();
+    }
+
+    public void loadCars(Context context) {
+        SharedPreferences sharedPrefs = context.getSharedPreferences("Cars", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+
+        Set<String> set = sharedPrefs.getStringSet("Cars", null);
+        if (set != null) {
+            carList.addAll(set);
+        }
+    }
+
 
 }

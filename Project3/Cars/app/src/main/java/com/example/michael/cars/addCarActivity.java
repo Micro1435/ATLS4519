@@ -43,11 +43,14 @@ public class addCarActivity extends MainActivity {
 
                 if (newMake != null) {
                     addCarToList(newCar, newYear, newPrice, newHP);
+                    storeCars(addCarActivity.this);
+
                     make.setText("");
                     model.setText("");
                     year.setText("");
                     price.setText("");
                     hp.setText("");
+
                     toast.show();
                 }
             }
